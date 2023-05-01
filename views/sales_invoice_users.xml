@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="trust_add_to_form" model="ir.ui.view">
+        <field name="name">sale.order.trust</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='client_order_ref']" position="after">
+                <field name="trust" widget="radio"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    for users and invoices-->
+    <record id="trust_add_to_form2" model="ir.ui.view">
+        <field name="name">account.move.trust</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@id='other_tab_group']/group/field[@name='ref']" position="after">
+                <field name="trust" widget="radio"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="trust_add_to_form3" model="ir.ui.view">
+        <field name="name">res.partner.trust</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="trust" widget="radio"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
